@@ -8,16 +8,16 @@ namespace backendApi.Controllers
   [ApiController]
   public class BowlingController : ControllerBase
   {
-    private IBowlerRepository _bowlerRepo;
-    public BowlingController(IBowlerRepository temp)
+    private IBowlingRepository _bowlingRepo;
+    public BowlingController(IBowlingRepository temp)
     {
-      _bowlerRepo = temp;
+      _bowlingRepo = temp;
     }
 
     [HttpGet]
     public IEnumerable<Bowler> Get()
     {
-      var bowlerData = _bowlerRepo.Bowlers.ToArray();
+      var bowlerData = _bowlingRepo.Bowlers.ToArray();
 
       return bowlerData;
     }

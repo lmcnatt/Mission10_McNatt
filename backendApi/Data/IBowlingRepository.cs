@@ -1,6 +1,6 @@
 namespace backendApi.Data
 {
-  public interface IBowlerRepository
+  public interface IBowlingRepository
   {
     IEnumerable<Bowler> Bowlers { get; }
   }
