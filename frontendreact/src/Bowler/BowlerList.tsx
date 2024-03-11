@@ -11,7 +11,7 @@ function BowlerList() {
       setBowlerData(f);
     };
     fetchBowlerData();
-  });
+  }, []);
 
   return (
     <>
@@ -36,7 +36,7 @@ function BowlerList() {
               <td>
                 {f.bowlerFirstName} {f.bowlerMiddleInit} {f.bowlerLastName}
               </td>
-              <td>{f.teamName}</td>
+              <td>{f.team.teamName}</td>
               <td>{f.bowlerAddress}</td>
               <td>{f.bowlerCity}</td>
               <td>{f.bowlerState}</td>
