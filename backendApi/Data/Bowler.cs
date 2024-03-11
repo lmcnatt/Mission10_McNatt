@@ -25,7 +25,7 @@ public partial class Bowler
 
     public int? TeamId { get; set; }
 
-    public virtual ICollection<BowlerScore> BowlerScores { get; set; } = new List<BowlerScore>();
-
     public virtual Team? Team { get; set; }
+
+    // public virtual ICollection<BowlerScore> BowlerScores { get; set; } = new List<BowlerScore>();
 }

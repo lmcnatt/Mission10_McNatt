@@ -6,7 +6,7 @@ function BowlerList() {
 
   useEffect(() => {
     const fetchBowlerData = async () => {
-      const rsp = await fetch('http://localhost:5033/Bowler');
+      const rsp = await fetch('http://localhost:5033/Bowling');
       const f = await rsp.json();
       setBowlerData(f);
     };
@@ -14,9 +14,9 @@ function BowlerList() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="row">
-        <h4 className="text-center display-2">Bowlers</h4>
+        <h4 className="text-center display-3">Bowlers</h4>
       </div>
       <table className="table table-bordered">
         <thead>
@@ -46,7 +46,7 @@ function BowlerList() {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 
