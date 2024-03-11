@@ -11,6 +11,6 @@ namespace backendApi.Data
       _context = temp;
     }
 
-    public IEnumerable<Bowler> Bowlers => _context.Bowlers.Include("Team");
+    public IEnumerable<Bowler> Bowlers => _context.Bowlers;
   }
 }
