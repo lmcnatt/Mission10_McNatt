@@ -23,6 +23,7 @@ function TeamList() {
           <tr>
             <th>Team Name</th>
             <th>Captain Name</th>
+            <th>Captain Average Score</th>
           </tr>
         </thead>
         <tbody>
@@ -30,8 +31,35 @@ function TeamList() {
             <tr key={f.teamId}>
               <td>{f.teamName}</td>
               <td>
-                {f.captain.bowlerFirstName} {f.captain.bowlerMiddleInit}{' '}
-                {f.captain.bowlerLastName}
+                {
+                  f.bowlers?.find((b) => b.bowlerId === f.captainId)
+                    ?.bowlerFirstName
+                }{' '}
+                {
+                  f.bowlers?.find((b) => b.bowlerId === f.captainId)
+                    ?.bowlerMiddleInit
+                }{' '}
+                {
+                  f.bowlers?.find((b) => b.bowlerId === f.captainId)
+                    ?.bowlerLastName
+                }
+              </td>
+              <td>
+                {(() => {
+                  const captain = f.bowlers?.find(
+                    (b) => b.bowlerId === f.captainId,
+                  );
+                  if (captain && captain.bowlerScores) {
+                    const sumOfScores = captain.bowlerScores.reduce(
+                      (sum, score) => sum + score.rawScore,
+                      0,
+                    );
+                    const countOfScores = captain.bowlerScores.length;
+                    return countOfScores > 0
+                      ? Math.round(sumOfScores / countOfScores)
+                      : '';
+                  }
+                })()}
               </td>
             </tr>
           ))}

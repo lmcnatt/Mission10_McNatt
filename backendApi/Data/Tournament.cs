@@ -11,5 +11,5 @@ public partial class Tournament
 
     public string? TourneyLocation { get; set; }
 
-    // public virtual ICollection<TourneyMatch> TourneyMatches { get; set; } = new List<TourneyMatch>();
+    public virtual ICollection<TourneyMatch> TourneyMatches { get; set; } = new List<TourneyMatch>();
 }

@@ -17,5 +17,5 @@ public partial class BowlerScore
 
     public bool WonGame { get; set; }
 
-    public virtual Bowler? Bowler { get; set; } = null!;
+    public virtual Bowler Bowler { get; set; } = null!;
 }

@@ -28,6 +28,7 @@ function BowlerList() {
             <th>State</th>
             <th>Zip</th>
             <th>Phone Number</th>
+            <th>Average Score</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +43,14 @@ function BowlerList() {
               <td>{f.bowlerState}</td>
               <td>{f.bowlerZip}</td>
               <td>{f.bowlerPhoneNumber}</td>
+              <td>
+                {Math.round(
+                  f.bowlerScores.reduce(
+                    (sum, score) => sum + score.rawScore,
+                    0,
+                  ) / f.bowlerScores.length,
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

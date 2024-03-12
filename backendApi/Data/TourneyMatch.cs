@@ -17,7 +17,7 @@ public partial class TourneyMatch
 
     public virtual Team? EvenLaneTeam { get; set; }
 
-    // public virtual ICollection<MatchGame> MatchGames { get; set; } = new List<MatchGame>();
+    public virtual ICollection<MatchGame> MatchGames { get; set; } = new List<MatchGame>();
 
     public virtual Team? OddLaneTeam { get; set; }
 
