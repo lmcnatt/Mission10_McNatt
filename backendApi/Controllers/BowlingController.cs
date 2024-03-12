@@ -21,13 +21,5 @@ namespace backendApi.Controllers
 
       return bowlerData;
     }
-
-    [HttpGet("Teams", Name = "GetTeams")]
-    public IEnumerable<Team> GetTeams()
-    {
-      var teamData = _bowlingRepo.Teams.ToArray();
-
-      return teamData;
-    }
   }
 }
