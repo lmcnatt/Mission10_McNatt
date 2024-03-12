@@ -6,7 +6,7 @@ function BowlerList() {
 
   useEffect(() => {
     const fetchBowlerData = async () => {
-      const rsp = await fetch('http://localhost:5033/Bowler');
+      const rsp = await fetch('http://localhost:5033/Bowling/Bowlers');
       const f = await rsp.json();
       setBowlerData(f);
     };
@@ -14,9 +14,9 @@ function BowlerList() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="row">
-        <h4 className="text-center display-2">Bowlers</h4>
+        <h4 className="text-center display-3">Bowlers</h4>
       </div>
       <table className="table table-bordered">
         <thead>
@@ -28,6 +28,7 @@ function BowlerList() {
             <th>State</th>
             <th>Zip</th>
             <th>Phone Number</th>
+            <th>Average Score</th>
           </tr>
         </thead>
         <tbody>
@@ -42,11 +43,19 @@ function BowlerList() {
               <td>{f.bowlerState}</td>
               <td>{f.bowlerZip}</td>
               <td>{f.bowlerPhoneNumber}</td>
+              <td>
+                {Math.round(
+                  f.bowlerScores.reduce(
+                    (sum, score) => sum + score.rawScore,
+                    0,
+                  ) / f.bowlerScores.length,
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

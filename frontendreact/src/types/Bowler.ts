@@ -79,4 +79,15 @@ export type Bowler = {
       },
     ];
   };
+  bowlerScores: [
+    {
+      matchId: number;
+      gameNumber: number;
+      bowlerId: number;
+      rawScore: number;
+      handiCapScore: number;
+      wonGame: boolean;
+      bowler: string;
+    },
+  ];
 };

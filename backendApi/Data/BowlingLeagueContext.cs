@@ -60,7 +60,7 @@ public partial class BowlingLeagueContext : DbContext
                 .HasColumnType("INT")
                 .HasColumnName("TeamID");
 
-            entity.HasOne(d => d.Team).WithMany(p => p.Bowlers).HasForeignKey(d => d.TeamId);
+            entity.HasOne(d => d.Team).WithMany(p => p.Bowlers).HasForeignKey(d => d.TeamId).IsRequired();
         });
 
         modelBuilder.Entity<BowlerScore>(entity =>
@@ -90,7 +90,7 @@ public partial class BowlingLeagueContext : DbContext
 
             entity.HasOne(d => d.Bowler).WithMany(p => p.BowlerScores)
                 .HasForeignKey(d => d.BowlerId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .OnDelete(DeleteBehavior.ClientSetNull).IsRequired();
         });
 
         modelBuilder.Entity<MatchGame>(entity =>
@@ -114,12 +114,14 @@ public partial class BowlingLeagueContext : DbContext
 
             entity.HasOne(d => d.Match).WithMany(p => p.MatchGames)
                 .HasForeignKey(d => d.MatchId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .OnDelete(DeleteBehavior.ClientSetNull).IsRequired();
         });
 
         modelBuilder.Entity<Team>(entity =>
         {
             entity.HasIndex(e => e.TeamId, "TeamID").IsUnique();
+
+            entity.HasIndex(e => e.CaptainId, "TeamCaptainID");
 
             entity.Property(e => e.TeamId)
                 .HasColumnType("INT")
@@ -128,6 +130,8 @@ public partial class BowlingLeagueContext : DbContext
                 .HasColumnType("INT")
                 .HasColumnName("CaptainID");
             entity.Property(e => e.TeamName).HasColumnType("nvarchar (50)");
+
+            // entity.HasOne(d => d.Captain).WithMany().HasForeignKey(d => d.CaptainId).IsRequired();
         });
 
         modelBuilder.Entity<Tournament>(entity =>
@@ -170,11 +174,11 @@ public partial class BowlingLeagueContext : DbContext
                 .HasColumnType("INT")
                 .HasColumnName("TourneyID");
 
-            entity.HasOne(d => d.EvenLaneTeam).WithMany(p => p.TourneyMatchEvenLaneTeams).HasForeignKey(d => d.EvenLaneTeamId);
+            entity.HasOne(d => d.EvenLaneTeam).WithMany(p => p.TourneyMatchEvenLaneTeams).HasForeignKey(d => d.EvenLaneTeamId).IsRequired();
 
-            entity.HasOne(d => d.OddLaneTeam).WithMany(p => p.TourneyMatchOddLaneTeams).HasForeignKey(d => d.OddLaneTeamId);
+            entity.HasOne(d => d.OddLaneTeam).WithMany(p => p.TourneyMatchOddLaneTeams).HasForeignKey(d => d.OddLaneTeamId).IsRequired();
 
-            entity.HasOne(d => d.Tourney).WithMany(p => p.TourneyMatches).HasForeignKey(d => d.TourneyId);
+            entity.HasOne(d => d.Tourney).WithMany(p => p.TourneyMatches).HasForeignKey(d => d.TourneyId).IsRequired();
         });
 
         modelBuilder.Entity<ZtblBowlerRating>(entity =>

@@ -14,12 +14,20 @@ namespace backendApi.Controllers
       _bowlingRepo = temp;
     }
 
-    [HttpGet]
-    public IEnumerable<Bowler> Get()
+    [HttpGet("Bowlers", Name = "GetBowlers")]
+    public IEnumerable<Bowler> GetBowlers()
     {
       var bowlerData = _bowlingRepo.Bowlers.ToArray();
 
       return bowlerData;
+    }
+
+    [HttpGet("Teams", Name = "GetTeams")]
+    public IEnumerable<Team> GetTeams()
+    {
+      var teamData = _bowlingRepo.Teams.ToArray();
+
+      return teamData;
     }
   }
 }
