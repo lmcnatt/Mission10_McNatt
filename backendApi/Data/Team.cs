@@ -11,7 +11,9 @@ public partial class Team
 
     public int? CaptainId { get; set; }
 
-    // public virtual ICollection<Bowler> Bowlers { get; set; } = new List<Bowler>();
+    public virtual Bowler? Captain { get; set; }
+
+    // public virtual ICollection<Bowler>? Bowlers { get; set; }
 
     // public virtual ICollection<TourneyMatch> TourneyMatchEvenLaneTeams { get; set; } = new List<TourneyMatch>();
 

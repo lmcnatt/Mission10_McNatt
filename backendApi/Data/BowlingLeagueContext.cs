@@ -121,6 +121,8 @@ public partial class BowlingLeagueContext : DbContext
         {
             entity.HasIndex(e => e.TeamId, "TeamID").IsUnique();
 
+            entity.HasIndex(e => e.CaptainId, "TeamCaptainID");
+
             entity.Property(e => e.TeamId)
                 .HasColumnType("INT")
                 .HasColumnName("TeamID");
@@ -128,6 +130,8 @@ public partial class BowlingLeagueContext : DbContext
                 .HasColumnType("INT")
                 .HasColumnName("CaptainID");
             entity.Property(e => e.TeamName).HasColumnType("nvarchar (50)");
+
+            entity.HasOne(d => d.Captain).WithMany().HasForeignKey(d => d.CaptainId).IsRequired();
         });
 
         modelBuilder.Entity<Tournament>(entity =>
