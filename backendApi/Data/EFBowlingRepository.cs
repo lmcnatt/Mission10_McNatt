@@ -12,6 +12,7 @@ namespace backendApi.Data
     }
 
     public IEnumerable<Bowler> Bowlers => _context.Bowlers.Include(b => b.Team).Include(b => b.BowlerScores)
+                                                          .Where(b => b.Team.TeamName == "Marlins" || b.Team.TeamName == "Sharks")
                                                           .Select(b => new Bowler
                                                           {
                                                             BowlerId = b.BowlerId,
