@@ -2988,11 +2988,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\backendApi.csproj",
+      "projectUniqueName": "C:\\Users\\logan\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\backendApi.csproj",
       "projectName": "backendApi",
-      "projectPath": "C:\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\backendApi.csproj",
+      "projectPath": "C:\\Users\\logan\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\backendApi.csproj",
       "packagesPath": "C:\\Users\\logan\\.nuget\\packages\\",
-      "outputPath": "C:\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\obj\\",
+      "outputPath": "C:\\Users\\logan\\Logan\\BYU\\Winter 2024\\IS 413 - Enterprise Application Development\\Mission 10 McNatt\\backendApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3075,7 +3075,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
